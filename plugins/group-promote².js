@@ -8,13 +8,13 @@ let handler = async (m, { conn }) => {
   }
 
   if (!mentioned || !mentioned.length) {
-    return conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    return conn.sendMessage(m.chat, { react: { text: '☁️', key: m.key } });
   }
 
   const user = mentioned[0];
 
   if (!user || typeof user !== 'string' || !user.endsWith('@s.whatsapp.net')) {
-    return conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    return conn.sendMessage(m.chat, { react: { text: '☁️', key: m.key } });
   }
 
   await conn.groupParticipantsUpdate(m.chat, [user], 'promote');
