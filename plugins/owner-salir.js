@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, command }) => {
 let id = text ? text : m.chat  
-let pp = 'https://telegra.ph/file/5ab1ca8bf65c1ddb36c20.mp4'
-await conn.sendMessage(m.chat, { video: { url: pp }, gifPlayback: true, caption: '*Adios a todos, el Bot se despide! 𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁', mentions: [m.sender] }, { quoted: m })
+let pp = 'https://files.catbox.moe/cqyt08.mp4'
+await conn.sendMessage(m.chat, { video: { url: pp }, gifPlayback: true, caption: '☁️ Adiós Putitas 𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁', mentions: [m.sender] }, { quoted: m })
 await conn.groupLeave(id)}
 handler.help = ['salir']
 handler.tags = ['owner']
