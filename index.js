@@ -22,7 +22,7 @@ const rl = createInterface(process.stdin, process.stdout)
 const app = express()
 const port = process.env.PORT || 8080;
 
-say('Sofi\nBot', {
+say('𝐂𝐇𝐈𝐊𝐈𝐒\n𝗕𝗼𝘁', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
