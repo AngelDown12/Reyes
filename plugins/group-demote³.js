@@ -6,7 +6,7 @@ let handler = async (m, { conn }) => {
   const user = m.quoted?.sender;
   if (!user) {
 
-    return conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    return conn.sendMessage(m.chat, { react: { text: '☁️', key: m.key } });
   }
 
   await conn.groupParticipantsUpdate(m.chat, [user], 'demote');
