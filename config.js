@@ -26,19 +26,19 @@ global.prems = []
    
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = `𝑺𝑶𝑭𝑰 - 𝑩𝑶𝑻`
-global.author = '{\n "bot": {\n   "name": "𝑺𝑶𝑭𝑰 - 𝑩𝑶𝑻",\n     "author": "𝑺𝑶𝑭𝑰",\n   "status_bot": "active"\n }\n}'
-global.wait = '𝑺𝑶𝑭𝑰 - 𝑩𝑶𝑻'
-global.botname = '𝑺𝑶𝑭𝑰 - 𝑩𝑶𝑻'
-global.textbot = `WhatsApp Bot Sofi 👸🏻`
-global.listo = 'Finalizado ✯'
-global.namechannel = '𝑺𝑰𝑺𝑲𝑬𝑫 𝑩𝑶𝑻'
+global.packname = `𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁`
+global.author = '{\n "𝗕𝗼𝘁": {\n   "name": "𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁",\n     "author": "𝗖𝗵𝗶𝗸𝗶𝘀",\n   "status_bot": "active"\n }\n}'
+global.wait = '𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁'
+global.botname = '𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁'
+global.textbot = `𝗪𝗵𝗮𝘁𝘀𝗮𝗽𝗽 𝗖𝗵𝗶𝗸𝗶𝘀 𝗕𝗼𝘁 🕷️`
+global.listo = '𝗙𝗶𝗻𝗮𝗹𝗶𝘇𝗮𝗱𝗼 🕷️'
+global.namechannel = '𝗖𝗵𝗶𝗸𝗶𝘀 𝗕𝗼𝘁 🕷️'
 global.baileys = '@whiskeysockets/baileys'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.catalogo = fs.readFileSync('./storage/img/catalogo.png')
-global.miniurl = fs.readFileSync('./storage/img/siskedurl.jpg')
+global.miniurl = ''
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
