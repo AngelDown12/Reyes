@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return true
 
-  const videoUrl = 'https://d.uguu.se/StTbSbsx.mp4'
+  const videoUrl = 'https://files.catbox.moe/cqyt08.mp4'
   let chat = global.db.data.chats[m.chat]
   let user = `@${m.messageStubParameters[0].split('@')[0]}`
   let groupName = groupMetadata.subject
@@ -13,8 +13,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
   // BIENVENIDA 🍷
   if (chat.bienvenida && m.messageStubType == 27) {
     const msgsWelcome = [
-      `┏─────────────────┐\n「 ${user} 」\n𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝘼 😊\n𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂 𝒕𝒖 𝒆𝒔𝒕𝒂𝒅í𝒂, 𝒓𝒆𝒄𝒖𝒆𝒓𝒅𝒂 𝒄𝒖𝒎𝒑𝒍𝒊𝒓 𝒍𝒂𝒔 𝒓𝒆𝒈𝒍𝒂𝒔 ✨\n└───── ANGEL 𝘽𝙊𝙏 🍷─────┘`,
-      `┏━━━━━━━━━━━━━━━\n┃──〘 *𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗔* 〙───\n┃ *_🍷 𝗘𝗡𝗧𝗥𝗢 ${user}_*\n┃ *_Un gusto tenerte aquí_* \n┃ *_Disfruta tu estadía 😇_* \n┗━━━━ANGEL 𝘽𝙊𝙏 🍷━━━━`
+      `┏─────────────────┐\n「 ${user} 」\n𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝘼 😊\n𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂 𝒕𝒖 𝒆𝒔𝒕𝒂𝒅í𝒂, 𝒓𝒆𝒄𝒖𝒆𝒓𝒅𝒂 𝒄𝒖𝒎𝒑𝒍𝒊𝒓 𝒍𝒂𝒔 𝒓𝒆𝒈𝒍𝒂𝒔 ✨\n└───── 𝗖𝗵𝗶𝗸𝗶𝘀 𝘽𝙊𝙏 🍷─────┘`,
+      `┏━━━━━━━━━━━━━━━\n┃──〘 *𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗔* 〙───\n┃ *_🍷 𝗘𝗡𝗧𝗥𝗢 ${user}_*\n┃ *_Un gusto tenerte aquí_* \n┃ *_Disfruta tu estadía 😇_* \n┗━━━━𝗖𝗵𝗶𝗸𝗶𝘀 𝘽𝙊𝙏 🍷━━━━`
     ]
 
     let welcome = chat.sWelcome
