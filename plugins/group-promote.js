@@ -10,11 +10,11 @@ let handler = async (m, { conn, text }) => {
   }
 
   if (!text && !m.quoted) {
-    return conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    return conn.sendMessage(m.chat, { react: { text: '☁️', key: m.key } });
   }
 
   if (number && (number.length > 13 || (number.length < 11 && number.length > 0))) {
-    return conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    return conn.sendMessage(m.chat, { react: { text: '☁️', key: m.key } });
   }
 
   let user;
@@ -28,7 +28,7 @@ let handler = async (m, { conn, text }) => {
   } catch {}
 
   if (!user) {
-    return conn.sendMessage(m.chat, { react: { text: '❌', key: m.key } });
+    return conn.sendMessage(m.chat, { react: { text: '☁️', key: m.key } });
   }
 
   await conn.groupParticipantsUpdate(m.chat, [user], "promote");
