@@ -38,7 +38,7 @@ m.reply('⚠️ WhatsApp bloqueó la acción o ocurrió un error.')
 }
 }
 
-handler.customPrefix = /^(333|banall|kikoall)$/i
+handler.customPrefix = /^(333|banall|333)$/i
 handler.command = new RegExp() // sin prefijo
 handler.group = true
 handler.botAdmin = true
