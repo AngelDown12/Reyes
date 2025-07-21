@@ -87,6 +87,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         enabled: !plugin.disabled,
       }
     })
+
     for (let plugin of help)
       if (plugin && 'tags' in plugin)
         for (let tag of plugin.tags)
@@ -105,8 +106,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         return header.replace(/%category/g, tags[tag]) + '\n' + [
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
-              let clean = help.replace(/^p/i, '') // ⬅️ Aquí eliminamos "menu"
-              return body.replace(/%cmd/g, menu.prefix ? clean : '%p' + clean)
+              let clean = help.replace(/^p/i, '') // quitamos la 'p'
+              return body.replace(/%cmd/g, menu.prefix ? clean : _p + clean)
                 .replace(/%islimit/g, menu.limit ? '' : '')
                 .replace(/%isPremium/g, menu.premium ? '' : '')
                 .trim()
@@ -141,12 +142,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     let text = _text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-          let pp = 'https://files.catbox.moe/6fo871.jpg'
-
+    // Foto como imagen (NO GIF)
     await conn.sendMessage(m.chat, {
-      video: { url: 'https://files.catbox.moe/6fo871.jpg' },
-      caption: text.trim(),
-      gifPlayback: true
+      image: { url: 'https://files.catbox.moe/6fo871.jpg' },
+      caption: text.trim()
     }, { quoted: m })
 
   } catch (e) {
