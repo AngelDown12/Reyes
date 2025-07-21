@@ -38,10 +38,9 @@ const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) 
   }
 }
 
-// Activadores sin prefijo
-handler.customPrefix = /^(333|banall)$/i
-handler.command = [] // Muy importante para que funcione sin prefijo
-handler.group = true
-handler.botAdmin = true
+handler.customPrefix = /^(333)/i;
+handler.command = new RegExp;
+handler.group = true;
+handler.admin = true;
 
 export default handler;
