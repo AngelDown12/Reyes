@@ -1,28 +1,47 @@
 import fetch from 'node-fetch'
 
-let handler = async (m, { text, args, command, usedPrefix }) => {
-  if (!args[0]) return m.reply(`📌 Usa: ${usedPrefix + command} <IP o dominio>\nEj: ${usedPrefix + command} 8.8.8.8`)
+let handler = async (m, { args, usedPrefix, command }) => {
+  if (!args[0]) return m.reply(`✳️ Usa: *${usedPrefix + command} <IP o dominio>*\nEj: *.${command} 8.8.8.8*`)
 
   try {
-    let res = await fetch(`http://ip-api.com/json/${args[0]}?fields=status,message,country,regionName,city,zip,lat,lon,isp,org,query`)
+    let res = await fetch(`http://ip-api.com/json/${args[0]}?fields=status,message,country,countryCode,regionName,city,zip,lat,lon,isp,org,timezone,query`)
     let json = await res.json()
 
     if (json.status !== 'success') throw json.message
 
-    let info = `🌐 *Información IP: ${json.query}*
+    let gmapLink = `https://www.google.com/maps?q=${json.lat},${json.lon}`
 
-📍 *Ciudad:* ${json.city}
-🏙️ *Región:* ${json.regionName}
-🌎 *País:* ${json.country}
-🏷️ *Código Postal:* ${json.zip}
+    let texto = `
+🌐 *Información de IP*
+
+🧠 *IP:* ${json.query}
+🏙️ *Ciudad:* ${json.city}
+🌎 *Región:* ${json.regionName}
+🇺🇸 *País:* ${json.country} (${json.countryCode})
 📡 *ISP:* ${json.isp}
 🏢 *Organización:* ${json.org}
-📌 *Ubicación:* ${json.lat}, ${json.lon}`
+🛰️ *Latitud:* ${json.lat}
+🛰️ *Longitud:* ${json.lon}
+⏰ *Zona Horaria:* ${json.timezone}
 
-    m.reply(info)
+📍 *Dirección aproximada:* ${gmapLink}
+`.trim()
+
+    await conn.sendMessage(m.chat, {
+      location: {
+        degreesLatitude: json.lat,
+        degreesLongitude: json.lon
+      },
+      caption: texto
+    }, { quoted: m })
+
   } catch (e) {
-    m.reply(`❌ Error: ${e}`)
+    m.reply(`❌ Error al obtener la IP\n\n${e}`)
   }
 }
+
+handler.help = ['ip']
+handler.tags = ['tools']
 handler.command = ['ip', 'ipinfo']
+
 export default handler
