@@ -1,15 +1,15 @@
 import fetch from 'node-fetch'
 
 export async function before(m, { conn }) {
-//let img = await (await fetch(`https://files.catbox.moe/eivdme.jpg`)).buffer()
+//let img = await (await fetch(`https://files.catbox.moe/6fo871.jpg`)).buffer()
 let img = catalogo
  global.fake = {
     contextInfo: {
     	isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: "120363418345562911@newsletter",
+      newsletterJid: "120363403653198246@newsletter",
       serverMessageId: 100,
-      newsletterName: '𝗖𝗵𝗶𝗸𝗶𝘀 𝗕𝗼𝘁',
+      newsletterName: '𝗥𝗲𝘆𝗲𝘀 𝗕𝗼𝘁',
     },
 	    externalAdReply: {
 				    showAdAttribution: true,
@@ -18,7 +18,7 @@ let img = catalogo
 					mediaUrl: null,
 					description: null,
 					previewType: "PHOTO",
-					thumbnailUrl: 'https://files.catbox.moe/eivdme.jpg',
+					thumbnailUrl: 'https://files.catbox.moe/6fo871.jpg',
 		           sourceUrl: canal,
 		           mediaType: 1,
                    renderLargerThumbnail: false
@@ -50,16 +50,16 @@ global.rcanal = {
 contextInfo: {
 isForwarded: true,
 forwardedNewsletterMessageInfo: {
-newsletterJid: "120363418345562911@newsletter",
+newsletterJid: "120363403653198246@newsletter",
 serverMessageId: 100,
-newsletterName: '𝗖𝗵𝗶𝗸𝗶𝘀 𝗕𝗼𝘁',
+newsletterName: '𝗥𝗲𝘆𝗲𝘀 𝗕𝗼𝘁',
 },
 externalAdReply: { 
 showAdAttribution: true,
-title: '𝗖𝗵𝗶𝗸𝗶𝘀 - 𝗕𝗼𝘁',
-body: '𝗖𝗵𝗶𝗸𝗶𝘀',
+title: '𝗥𝗲𝘆𝗲𝘀 - 𝗕𝗼𝘁',
+body: '𝗥𝗲𝘆𝗲𝘀',
 previewType: "PHOTO",
-thumbnailUrl: 'https://files.catbox.moe/eivdme.jpg',
+thumbnailUrl: 'https://files.catbox.moe/6fo871.jpg',
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: false
