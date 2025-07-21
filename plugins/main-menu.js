@@ -105,7 +105,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         return header.replace(/%category/g, tags[tag]) + '\n' + [
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
-              let clean = help.replace(/^menu/i, '') // ⬅️ Aquí eliminamos "menu"
+              let clean = help.replace(/^p/i, '') // ⬅️ Aquí eliminamos "menu"
               return body.replace(/%cmd/g, menu.prefix ? clean : '%p' + clean)
                 .replace(/%islimit/g, menu.limit ? '' : '')
                 .replace(/%isPremium/g, menu.premium ? '' : '')
@@ -141,7 +141,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
     let text = _text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-          let pp = 'https://files.catbox.moe/skcpb6.mp4'
+          let pp = 'https://files.catbox.moe/6fo871.jpg'
 
     await conn.sendMessage(m.chat, {
       video: { url: 'https://files.catbox.moe/cqyt08.mp4' },
