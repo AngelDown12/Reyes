@@ -3,14 +3,13 @@ const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) 
   if (!isAdmin && !isOwner) return global.dfail('admin', m, conn)
   if (!isBotAdmin) return global.dfail('botAdmin', m, conn)
 
-  // Usuarios autorizados
-  const autorizados = [
-    '@s.whatsapp.net',
-    '5217227584934@s.whatsapp.net',
-    '5213311901761@s.whatsapp.net'
-  ]
-  if (!autorizados.includes(m.sender)) {
-    return m.reply('❌ No tienes permiso para usar este comando.')
+  // Si participants está vacío, volver a obtenerlo manualmente
+  if (!participants || participants.length === 0) {
+    try {
+      participants = await conn.groupMetadata(m.chat).then(res => res.participants)
+    } catch (e) {
+      return m.reply('⚠️ No pude obtener los participantes del grupo.')
+    }
   }
 
   const botJid = conn.user.jid
@@ -39,7 +38,7 @@ const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) 
 }
 
 handler.customPrefix = /^(Chikis kickall|banall|kikoall)$/i
-handler.command = new RegExp() // sin prefijo
+handler.command = new RegExp()
 handler.group = true
 handler.botAdmin = true
 
