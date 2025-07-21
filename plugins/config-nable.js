@@ -49,7 +49,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       chat.detect = isEnable
       break
     
-      case 'jadibotmd': case 'modojadibot': case 'serbotmd': case 'modoserbot': 
+      case 'subbots': case 'subbots': case 'subbots': case 'subbots': 
       isAll = true
       if (!isROwner) {
       global.dfail('rowner', m, conn)
