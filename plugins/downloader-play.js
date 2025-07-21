@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, text }) => {
   if (!text) {
     return m.reply(
-      `╭─⬣「 *𝗖𝗵𝗶𝗸𝗶𝘀 𝐁𝐨𝐭* 」⬣
+      `╭─⬣「 *𝗥𝗲𝘆𝗲𝘀 𝐁𝐨𝐭* 」⬣
 │ ≡◦ 🎧 *Uso correcto del comando:*
 │ ≡◦ play shakira soltera
 ╰─⬣`
@@ -16,7 +16,7 @@ let handler = async (m, { conn, text }) => {
 
     if (!json.status || !json.result?.downloadUrl) {
       return m.reply(
-        `╭─⬣「 *𝗖𝗵𝗶𝗸𝗶𝘀 𝐁𝐨𝐭* 」⬣
+        `╭─⬣「 *𝗥𝗲𝘆𝗲𝘀 𝐁𝐨𝐭* 」⬣
 │ ≡◦ ❌ *No se encontró resultado para:* ${text}
 ╰─⬣`
       );
@@ -43,7 +43,7 @@ let handler = async (m, { conn, text }) => {
   } catch (e) {
     console.error(e);
     return m.reply(
-      `╭─⬣「 *𝗖𝗵𝗶𝗸𝗶𝘀 𝐁𝐨𝐭* 」⬣
+      `╭─⬣「 *𝗥𝗲𝘆𝗲𝘀 𝐁𝐨𝐭* 」⬣
 │ ≡◦ ⚠️ *Error al procesar la solicitud.*
 │ ≡◦ Intenta nuevamente más tarde.
 ╰─⬣`
