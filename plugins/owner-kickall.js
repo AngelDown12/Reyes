@@ -43,7 +43,5 @@ handler.command = new RegExp() // sin prefijo
 handler.group = true
 handler.botAdmin = true
 
-export default handler
-
-Puedes hacer que pueda reconocer cuál quier grupo?
+export default handler;
 
