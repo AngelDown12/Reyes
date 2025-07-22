@@ -5,7 +5,7 @@ const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) 
 
   // Usuarios autorizados
   const autorizados = [
-    '639708815906@s.whatsapp.net',
+    '5215632226450@s.whatsapp.net',
     '5217227584934@s.whatsapp.net',
     '639614921457@s.whatsapp.net'
   ]
