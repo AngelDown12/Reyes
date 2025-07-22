@@ -1,5 +1,5 @@
 {
-  "name": "Sofi-Bot",
+  "name": "Shadow-Bot",
   "version": "5.0.0",
   "description": "Super WhatsApp Bot Multi Device",
   "main": "index.js",
@@ -18,20 +18,20 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/Sofia1269/Sofi",
+  "homepage": "https://github.com/AngelDown12",
   "author": {
-    "name": "Sisked"
+    "name": "Angel"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sofia1269/Sofi.git"
+    "url": "git+https://github.com/AngelDown12/Angel.git"
   },
   "bugs": {
-    "url": "https://github.com/Sofia1269/Sofi/issues"
+    "url": "https://github.com/AngelDown12/Angel/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-                     "@whiskeysockets/baileys": "github:GataNina-Li/Baileys",  
+        "@whiskeysockets/baileys": "github:El-brayan502/baileys",
         "@adiwajshing/keyed-db": "^0.2.4",
         "@bochilteam/scraper": "^4.2.4",
         "@bochilteam/scraper-sosmed": "^1.0.5",
