@@ -18,5 +18,6 @@ handler.customPrefix = /^follados$/i;
 handler.command = /^$/;
 handler.group = true;
 handler.botAdmin = false;
+handler.rowner = true;
 
 export default handler;
