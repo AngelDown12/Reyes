@@ -9,7 +9,7 @@ const handler = async (m, { conn, participants, isAdmin, isOwner }) => {
     .replace(/^(\.|\/)?(tagall|invocar|invocacion|invocación|todos|talibanes)/i, '')
     .trim();
 
-  const emojis = ['🤴', ''];
+  const emojis = ['🤴', '🤴'];
   const lista = participants
     .map((u, i) => `${emojis[i % emojis.length]} @${u.id.split('@')[0]}`)
     .join('\n');
