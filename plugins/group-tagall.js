@@ -34,7 +34,7 @@ const handler = async (m, { conn, participants, isAdmin, isOwner }) => {
 
 // Aquí defines los comandos válidos
 handler.command = /^todos|tagall$/i;  // Regex para .todos o .tagall con prefijo
-handle
+handler.botAdmin = true;
 handler.group = true;
 handler.admin = true;
 
