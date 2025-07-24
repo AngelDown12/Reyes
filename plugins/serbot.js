@@ -136,7 +136,9 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command }) => {
     if (methodCode && !state.creds.registered) {
       if (!phoneNumber) return
       let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
-      if (!Object.keys(PHONENUMBER_MCC).some(v => cleanedNumber.startsWith(v))) return
+      if (Handler && typeof Handler === 'object' && Object.keys(Handler).length > 0) {
+  handler = Handler
+}
 
       setTimeout(async () => {
         let codeBot = await conn.requestPairingCode(cleanedNumber)
