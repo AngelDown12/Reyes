@@ -47,6 +47,10 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command }) => {
     const { version } = await fetchLatestBaileysVersion()
     const phoneNumber = m.sender.split('@')[0]
 
+    // 🔥 ACTIVO el pairing code automáticamente
+    const methodCode = !args[0]
+    const MethodMobile = false
+
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
     const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
 
@@ -128,11 +132,33 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command }) => {
       }
     }
 
+    // 💥 Solicita código de emparejamiento si aplica
+    if (methodCode && !state.creds.registered) {
+      if (!phoneNumber) return
+      let cleanedNumber = phoneNumber.replace(/[^0-9]/g, '')
+      if (!Object.keys(PHONENUMBER_MCC).some(v => cleanedNumber.startsWith(v))) return
+
+      setTimeout(async () => {
+        let codeBot = await conn.requestPairingCode(cleanedNumber)
+        codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
+        let txt = `–  *S E R B O T  -  S U B B O T*\n\n`
+        txt += `┌  ✩  *Usa este Código para convertirte en un Sub Bot*\n`
+        txt += `│  ✩  Pasos\n`
+        txt += `│  ✩  *1* : Haga click en los 3 puntos\n`
+        txt += `│  ✩  *2* : Toque dispositivos vinculados\n`
+        txt += `│  ✩  *3* : Selecciona *Vincular con el número de teléfono*\n`
+        txt += `└  ✩  *4* : Escriba el Codigo\n\n`
+        txt += `*Nota:* Este Código solo funciona en el número que lo solicitó`
+
+        await parent.reply(m.chat, txt, m, rcanal)
+        await parent.reply(m.chat, codeBot, m, rcanal)
+        rl.close()
+      }, 3000)
+    }
+
     setInterval(async () => {
       if (!conn.user) {
-        try {
-          conn.ws.close()
-        } catch {}
+        try { conn.ws.close() } catch { }
         conn.ev.removeAllListeners()
         let i = global.conns.indexOf(conn)
         if (i >= 0) {
@@ -152,9 +178,7 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command }) => {
       }
 
       if (restatConn) {
-        try {
-          conn.ws.close()
-        } catch {}
+        try { conn.ws.close() } catch { }
         conn.ev.removeAllListeners()
         conn = makeWASocket(connectionOptions)
         isInit = true
@@ -187,7 +211,7 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command }) => {
 
 handler.help = ['code']
 handler.tags = ['serbot']
-handler.command = ['ser333', 'code']
+handler.command = ['codebotsisked', 'codebotraro']
 handler.rowner = false
 
 export default handler
