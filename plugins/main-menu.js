@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ╚═════════════════╝
 
           ✦ ────  ✧  ──── ✦
-                          𝐑𝐞𝐲𝐞𝐬𝐅🤍         
+                𝐑𝐞𝐲𝐞𝐬𝐗𝐋𝐞𝐬𝐬💞         
           ✦ ────  ✧  ──── ✦
 
 
