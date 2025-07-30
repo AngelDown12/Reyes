@@ -1,5 +1,5 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
-  const img = 'https://files.catbox.moe/6fo871.jpg';
+  const img = 'https://qu.ax/bgXOo.jpg';
   const name = await conn.getName(m.sender);
   const text = `╔═════════════════╗
 ║              ✧ *MENÚ DEL BOT* ✧
