@@ -1,23 +1,21 @@
 let handler = async function (m, { conn }) {
-  if (!m.isGroup) return m.reply('❌ Este comando solo funciona en grupos.')
+  if (!m.isGroup) return global.dfail('group', m, conn)
 
-  // Obtenemos datos del grupo directamente
   let groupMetadata
   try {
     groupMetadata = await conn.groupMetadata(m.chat)
   } catch (e) {
     console.error(e)
-    return m.reply('⚠️ No pude obtener la información del grupo.')
+    return global.dfail('groupinfo', m, conn)
   }
 
   const participantes = groupMetadata?.participants || []
-
   if (!participantes.length) return m.reply('⚠️ No se encontraron participantes en este grupo.')
 
   const tarjetas = participantes.map((p, index) => {
-    const rawJid = p.id || ''
-    const [user, domain] = rawJid.split('@')
-    const lid = domain === 'lid' ? `${user}@lid` : `${user}@s.whatsapp.net`
+    const jid = p.id || ''
+    const user = jid.split('@')[0] // Número o LID real
+    const lid = jid // Mostramos el ID completo
 
     const estado = p.admin === 'superadmin'
       ? '👑 Superadmin'
@@ -26,12 +24,12 @@ let handler = async function (m, { conn }) {
         : '👤 Miembro'
 
     return [
-      '┆ ┏━━━━━━━━━━━━━━━⌬',
+      `┆ ┏━━━━━━━━━━━━━━━⌬`,
       `┆ ┃ 🧾 *Participante ${index + 1}*`,
       `┆ ┃ 👤 *Usuario:* @${user}`,
       `┆ ┃ 🆔 *LID:* ${lid}`,
       `┆ ┃ 📌 *Estado:* ${estado}`,
-      '┆ ┗━━━━━━━━━━━━━━━━━━⌬'
+      `┆ ┗━━━━━━━━━━━━━━━━━━⌬`
     ].join('\n')
   })
 
