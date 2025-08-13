@@ -1,16 +1,16 @@
 const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) => {
-    if (!m.chat.endsWith('@g.us')) return global.dfail('group', m, conn)
+    if (!m.isGroup) return global.dfail('group', m, conn)
     if (!isAdmin && !isOwner) return global.dfail('admin', m, conn)
     if (!isBotAdmin) return global.dfail('botAdmin', m, conn)
 
     // Función para normalizar JID (quita @s.whatsapp.net o @lid)
     const normJid = jid => jid.replace(/(@s\.whatsapp\.net|@lid)$/i, '')
 
-    // Lista de autorizados
+    // Lista de autorizados (en formato limpio)
     const autorizados = [
-        '66362160476322',
+        '525565238431',
         '38354561278087',
-        '67355908522061'
+        '151600148549841'
     ]
 
     if (!autorizados.includes(normJid(m.sender))) {
