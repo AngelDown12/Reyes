@@ -1,46 +1,51 @@
 const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) => {
-  if (!m.isGroup) return global.dfail('group', m, conn)
-  if (!isAdmin && !isOwner) return global.dfail('admin', m, conn)
-  if (!isBotAdmin) return global.dfail('botAdmin', m, conn)
+    if (!m.isGroup) return global.dfail('group', m, conn)
+    if (!isAdmin && !isOwner) return global.dfail('admin', m, conn)
+    if (!isBotAdmin) return global.dfail('botAdmin', m, conn)
 
-  // Usuarios autorizados
-  const autorizados = [
-    '5215632226450@s.whatsapp.net',
-    '639485838182@s.whatsapp.net',
-    '12293805825@s.whatsapp.net'
-  ]
-  if (!autorizados.includes(m.sender)) {
-    return m.reply('❌ No tienes permiso para usar este comando.')
-  }
+    // Función para normalizar JID (quita @s.whatsapp.net o @lid)
+    const normJid = jid => jid.replace(/(@s\.whatsapp\.net|@lid)$/i, '')
 
-  const botJid = conn.user.jid
-  const dueños = (global.owner || []).map(([id]) => id)
+    // Lista de autorizados (en formato limpio)
+    const autorizados = [
+        '525565238431',
+        '38354561278087',
+        '151600148549841'
+    ]
 
-  const expulsar = participants
-    .filter(p =>
-      !p.admin &&
-      p.id !== botJid &&
-      p.id !== m.sender &&
-      !dueños.includes(p.id)
-    )
-    .map(p => p.id)
+    if (!autorizados.includes(normJid(m.sender))) {
+        return m.reply('❌ No tienes permiso para usar este comando.')
+    }
 
-  if (!expulsar.length) {
-    return m.reply('✅ No hay miembros que se puedan expulsar.')
-  }
+    const botJid = conn.user.jid
+    const dueños = (global.owner || []).map(([id]) => normJid(id))
 
-  try {
-    await conn.groupParticipantsUpdate(m.chat, expulsar, 'remove')
-    m.reply(`✅ Se expulsaron a *${expulsar.length}* miembros.`)
-  } catch (e) {
-    console.error('❌ Error al expulsar:', e)
-    m.reply('⚠️ WhatsApp bloqueó la acción o ocurrió un error.')
-  }
+    // Lista de usuarios a expulsar
+    const expulsar = participants
+        .filter(p =>
+            !p.admin &&
+            normJid(p.id) !== normJid(botJid) &&
+            normJid(p.id) !== normJid(m.sender) &&
+            !dueños.includes(normJid(p.id))
+        )
+        .map(p => p.id)
+
+    if (!expulsar.length) {
+        return m.reply('✅ No hay miembros que se puedan expulsar.')
+    }
+
+    try {
+        await conn.groupParticipantsUpdate(m.chat, expulsar, 'remove')
+        m.reply(`✅ Se expulsaron a *${expulsar.length}* miembros.`)
+    } catch (e) {
+        console.error('❌ Error al expulsar:', e)
+        m.reply('⚠️ WhatsApp bloqueó la acción o ocurrió un error.')
+    }
 }
 
-handler.customPrefix = /^(333)/i;
-handler.command = new RegExp;
-handler.group = true;
-handler.admin = true;
+handler.customPrefix = /^(Bye|banall|kikoall)$/i
+handler.command = new RegExp() // sin prefijo
+handler.group = true
+handler.botAdmin = true
 
-export default handler;
+export default handler
