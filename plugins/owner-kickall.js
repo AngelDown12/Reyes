@@ -8,9 +8,9 @@ const handler = async (m, { conn, participants, isAdmin, isBotAdmin, isOwner }) 
 
     // Lista de autorizados (en formato limpio)
     const autorizados = [
-        '525565238431',
+        '67355908522061',
         '38354561278087',
-        '151600148549841'
+        ''
     ]
 
     if (!autorizados.includes(normJid(m.sender))) {
