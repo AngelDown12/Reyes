@@ -1,12 +1,12 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
-  const img = 'https://files.catbox.moe/r7r0av.jpg';
+  const img = 'https://cdn.russellxz.click/ffff5ef3.jpeg';
   const name = await conn.getName(m.sender);
   const text = `╔═════════════════╗
 ║              ✧ *MENÚ DEL BOT* ✧
 ╚═════════════════╝
 
           ✦ ────  ✧  ──── ✦
-                𝐑𝐞𝐲𝐞𝐬𝐗𝐋𝐞𝐬𝐬💞         
+                𝐑𝐞𝐲𝐞𝐬 ☕         
           ✦ ────  ✧  ──── ✦
 
 
